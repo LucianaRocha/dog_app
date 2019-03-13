@@ -1,0 +1,354 @@
+Delivered-To: lucianaferreiradarocha@gmail.com
+Received: by 2002:a9d:5a93:0:0:0:0:0 with SMTP id w19csp1393366oth;
+        Tue, 12 Mar 2019 16:33:30 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqwAuvocUjzON+kvrwJpJlMLKSFTJrWVbbvK+5U8CR5t2dnkv2tYLS2A87u9XWB0kNl4ozEg
+X-Received: by 2002:a0d:f006:: with SMTP id z6mr17104412ywe.232.1552433610901;
+        Tue, 12 Mar 2019 16:33:30 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1552433610; cv=none;
+        d=google.com; s=arc-20160816;
+        b=HIfauRMLtypjLzyQjE1errpx5NOb0P4FRkuywgww+8H+0ejHv94mdgEZtGHv0H3n/d
+         l+OdjF9A5AHwcCYmi1OFSC97H5lGmyl+bFsShXey2dXorrwTxSnOxcW+UsUf+mAzSp1Y
+         1AomfTnqHnS0FjrR62Xp096V26PdFECh3yPu3dTRzuAuM3BN2lW50X5VaK7ilOmC5RbM
+         eix9S9eq97nvDc6oNIt4dcpBmA+p/e+FmwpV5ud3EGt7M+fIjwHu89/3+HlO6dJx1IMr
+         LkpyombJ690sd5Cjt6KbJoxtkQABdiyivywBkZ3EweElpMs/9iIYmWP4EBar54EUdA1V
+         4q3g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=message-id:to:subject:reply-to:mime-version:list-unsubscribe:from
+         :date:content-transfer-encoding:dkim-signature:dkim-signature;
+        bh=6mueT3v9SuLRoJ7x2IQ05dQgEMfn/UaqdhYIeLFFVGM=;
+        b=qgrAliqojzwoxQZR7CUFPVVhcdCwCzFhPLWFW0wA1GdfpbJ4pt3N8o5sTRmjmgFWsz
+         5I8YuFuOijWSp910RtShHlg+q/oHbFonvBEFrbSxV4p0DtlBf5ThPkiAy4ZuLjjq34yI
+         nwot4QUy1+xB69U37bSPf3dMniEtnF7L9IJ7RIE8x5V/vhCIPprRZqLd1wnHD6qF2sot
+         HvVFLCrFiqpoWx3kVqFDpuEvMZBFzb2CvfWrYWtMpXu+bE3cHTb1XscVbAdJDs2lAEIe
+         1ATrb4ZDfXhWZKkVh/re/07CICj4cjQkNOdy+cU9PD1bPlY5TWEORPYNMyhXQazAd5LO
+         JFCw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@udacity.com header.s=s1 header.b=Wi6qpZhg;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=mkPqxjQ0;
+       spf=pass (google.com: domain of bounces+3815146-8f96-lucianaferreiradarocha=gmail.com@smtp.udacity.com designates 198.37.151.138 as permitted sender) smtp.mailfrom="bounces+3815146-8f96-lucianaferreiradarocha=gmail.com@smtp.udacity.com"
+Return-Path: <bounces+3815146-8f96-lucianaferreiradarocha=gmail.com@smtp.udacity.com>
+Received: from o1.mailer.udacity.com (o1.mailer.udacity.com. [198.37.151.138])
+        by mx.google.com with ESMTPS id n67si6106989ywe.319.2019.03.12.16.33.30
+        for <lucianaferreiradarocha@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 12 Mar 2019 16:33:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+3815146-8f96-lucianaferreiradarocha=gmail.com@smtp.udacity.com designates 198.37.151.138 as permitted sender) client-ip=198.37.151.138;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@udacity.com header.s=s1 header.b=Wi6qpZhg;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=mkPqxjQ0;
+       spf=pass (google.com: domain of bounces+3815146-8f96-lucianaferreiradarocha=gmail.com@smtp.udacity.com designates 198.37.151.138 as permitted sender) smtp.mailfrom="bounces+3815146-8f96-lucianaferreiradarocha=gmail.com@smtp.udacity.com"
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=udacity.com; 
+	h=content-transfer-encoding:content-type:from:list-unsubscribe:mime-version:reply-to:subject:to; 
+	s=s1; bh=UCr9yvSgb0amBgJj5Jc1tI4kr/g=; b=Wi6qpZhg9cGrSvayQXYOy1e
+	iOXNW+4bxtwJSZerePinFGnyTDIApYCsNbeIL62pNC71myT6WI8CoS5QXu8fYRli
+	MrgXgYpjia0uYcHpS1iC4Hb/R+3WhEt9wiAh1UXiELwrJtAJNVvS/TczkzzDxmE6
+	uSb016yOQnzdqmL34NjY=
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed/relaxed; d=sendgrid.info; 
+	h=content-transfer-encoding:content-type:from:list-unsubscribe:mime-version:reply-to:subject:to:x-feedback-id; 
+	s=smtpapi; bh=UCr9yvSgb0amBgJj5Jc1tI4kr/g=; b=mkPqxjQ0sr4R/abNZ6
+	xbFTEXzbHyRY6SQq+JiuWiCFLvxUkBDnJR/FzlpYCzb5IeziKmWX4v4Ec4tQiWME
+	nmB6DN7ks8yM8wCm1ok87iqXCdpC6mNsyLD2tzrSWs4C0S0OgyPVVZijtdx8+z2o
+	zMnpqQElumf4Tmtjgp8qaowgY=
+Received: by filter1441p1mdw1.sendgrid.net with SMTP id filter1441p1mdw1-31399-5C8841CA-8
+        2019-03-12 23:33:30.530954211 +0000 UTC m=+86142.908449957
+Received: from MzgxNTE0Ng (ec2-52-41-67-243.us-west-2.compute.amazonaws.com [52.41.67.243])
+	by ismtpd0005p1las1.sendgrid.net (SG) with HTTP id 4eellZ_ASu6vJqaEsF03kA
+	for <lucianaferreiradarocha@gmail.com>; Tue, 12 Mar 2019 23:33:30.435 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 12 Mar 2019 23:33:30 +0000 (UTC)
+From: "Udacity" <support@udacity.com>
+List-Unsubscribe: <mailto:unsubscribe@smtp.udacity.com?subject=https://tclick.udacity.com/wf/unsubscribe*q*upn=cISuUkz-2BnGE1wTdTbiuIGvVZGowMnAH-2B-2Fd5m-2BnT-2BtrssPk-2FZv7c1lW1bjVGVyzZ7GP8RLzstEioQVXjyx8UKxgPQOR5-2B4-2FAVHPqIAxgMKzZsai0cUcHB68y4-2BWExrWtonlN8zETAronqBflrobX8MW3DIWsrZ87H4bg-2FhCUW0JP6u2SCuscpXQeT1WJxf2sVGRRnokusCGFBtVe-2Bp7kQp6vMLt-2FU2VgQXcVtWXYULEqIAI9sRvvmuwHDo6SRoBQc-2Fy3UL7EnR1AwcEMJCrgrir97-2BHXWDlzLJFJobU7dTzWqpsyTXXCfkrEKy-2Bv5XeJ8wGOF3tl80l-2BHMCtiFw8G98wWZoiwBSyj41qG3XuLm6mIt3vPLXlWv8sTQRYzLukOOkQ3wl-2BKi4miiCsaTgTho2ZSme399D-2FQKTqvRlgs8zoktF7skhzodcJF1S7vKt2Cgnh6G6DcW-2FzklqD0p282WVjyW9mHmzYQakN3ArHj6WJ1a3pPwGKo3ffhsowoUA1TCfZZG-2BDpZc4lBoS8oFNfrd9JRUwbRTGO-2FJCUwCLZwNwUFQyKaM60aHBJO-2B1xxuYb2mI5OH8RWKdmPpeEHm8hc8kKoXSrdFeHJdow-2FklFXUmU3rBBHx7d8hlY12DfR0CfK1EkO0YAQrmQxHVWZQd3rwa19rIVlHWKEwZXqj3Fp1LG3eGR-2BRhpwMOiNffXBfAb7Tpmo4IBdqkSLrJ0sUXplV7ICrja8vAdGvgrduEc0cG0ksDPI-2F-2BdiXDywspJovhvHfUd24eyNM3NAyZXCwfSCbUaM8ccVbWFsyK0EdwmwfTKnhsvmVzRNxrFNpYud1qFflknW-2B-2FsxrVKB0n-2BwR5MZ8Tf-2B5ut-2BAjt37RI16Zarfc-3D>
+Mime-Version: 1.0
+Reply-To: support@udacity.com
+Subject: Your project has been reviewed
+To: "Luciana Ferreira da Rocha" <lucianaferreiradarocha@gmail.com>
+X-campaignid: cc681e55-33c9-4672-bd2d-5da157a9e84b
+Message-ID: <4eellZ_ASu6vJqaEsF03kA@ismtpd0005p1las1.sendgrid.net>
+X-SG-EID: CyCyg6KAQeluMRBTo0AtpyL74mRMSIMHXH7ScIaXR6DrTlI5Mk4oPgb9uzHbKJWoCes4+peq6tKiSj
+ l5tDBqYiMtAuUAsByaQS20g0KzOQx/waIlXA4MhCW2fXYLudNOviRxnZYLOljxpnMwsiGlrheI3u4F
+ 4Yua1BkwgkMGmbIMj4b7AU0TK75cN8j5/Z+TVDSqG7JaYnGsrgPuV2Qo4sdA60dKA/dmC5w8QMS2eT
+ s=
+X-SG-ID: YDTqBOjidbCUo/ar1oAtZhrYb7Ek+HGH5EPg89u7GAeVPxzspSCLQ52iMu6BtA6Kp5hYLjqrmpTMHo
+ 8cASXBP+R4chXJK2jzTqlQYkbp9OgA2HpvXtja86qgc62tApvqLQ/KouocLO2SFhvW9uR7UBQhWEwT
+ GNd6UEKM+dazCSGezlN9uvDmtJCM3+e93B8Vlmuy2rT4960Kno5UGfQ04CIiWlob+GN6iBCpxGmT/Q
+ tWheudfM15R/pNxjhjApYzgKWTvVJKxd7LaQnt48O7/89yQkk1VETsT2qhL1FXsjmyJbEqPD/37EpD
+ O4GXrTkWeZ3eMt5JdijW8j57a8gPOWs5oLSdKZBe+61RnNVMfTS/t+CbLNS1MENzQ6Z0QqUWTpnO0c
+ cUydbYsNJFiyeG9oCmynJOIXXhAm5LZY16n6iyFM9vQTJW8oi3fL9gJS99043+vvqsD0320GoU2p3N
+ SVhv3t6JzWp++9s0MgRiva5n2AKxdqduZO5oR4XjE3ZFa3rMBbVvoGrmiuIIs2vlUqq3VWTWmPjMJV
+ rlFT7/3ZFhc2FrRD/PilTLrpAJ9MEDahZv/5YL0vNHgZQSIkpN2wU6k7rBncym5QlReRlHI4nxGCew
+ KkasLVjSCDqdAF2J
+X-Feedback-ID: 3815146:Skaecx1OHNnZspm10r6rnOPCtYAQurC1uh/rpw1nT98=:RUln3ZhyAbKlupHG7Mvmr3LvjZn2JjHDrDR6j43ZCx0N7WZ2XOF9eCXt41bH1Alx:SG
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns=3D"http://www.w3.=
+org/1999/xhtml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:v=
+=3D"urn:schemas-microsoft-com:vml">  <head>    <meta content=3D"text/html c=
+harset=3Dutf-8" http-equiv=3D"Content-Type" />    <meta content=3D"width=3D=
+device-width, initial-scale=3D1.0" name=3D"viewport" />    <meta content=3D=
+"IE=3Dedge" http-equiv=3D"X-UA-Compatible" />    <link href=3D"https://font=
+s.googleapis.com/css?family=3DOpen+Sans:600,400,300" rel=3D"stylesheet" typ=
+e=3D"text/css" />    <title>Udacity</title>    <style type=3D"text/css">   =
+   html,      body {        background-color: #fafbfc;      }      p {     =
+   color: #525C65;        margin: 15px 0;    line-height: 24px;      }     =
+ img {        display: block;      }      .ReadMsgBody {        width: 100%=
+;      }      a {        text-decoration: none;        color: #02b3e4;     =
+ }      .ExternalClass {        width: 100%;      }      * {        -webkit=
+-text-size-adjust: none;      }      .whiteLinks a:link,      .whiteLinks a=
+:visited {        color: #ffffff !important;      }            .appleLinksD=
+arkGrey a {    color: #525c65!important;    text-decoration: none!important=
+;    }      .appleLinksGrey a {        color: #b7bdc1 !important;        te=
+xt-decoration: none !important;      }      table {        border-collapse:=
+ collapse;      }      .preheader {        font-size: 1px;        line-heig=
+ht: 1px;        display: none !important;        mso-hide: all;      }     =
+   .body-text {    font-family: Arial, sans-serif;    }        .body-header=
+ {      font-family: Helvectica, Arial, sans-serif;    font-size: 20px;    =
+line-height: 100%;    }      /* AOL Mail td overrides */      #maincontent =
+td {        color: #525C65;      }    </style>  </head>  <body bgcolor=3D"#=
+fafbfc" style=3D"margin: 0px; padding: 0px; min-height: 300px;" yahoo=3D"fi=
+x">    <!--[if gte mso 9]><xml>      <o:OfficeDocumentSettings>        <o:A=
+llowPNG></o:AllowPNG>        <o:PixelsPerInch>96</o:PixelsPerInch>      </o=
+:OfficeDocumentSettings>    </xml><![endif]-->    <!--[if mso]>      <style=
+ type=3D"text/css">        body, table, td, a {font-family: Arial, Helvetic=
+a, sans-serif !important;}      </style>    <![endif]-->    <table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">      <tr>       =
+ <td style=3D"background-color:#fafbfc">          <center bgcolor=3D"#fafbf=
+c" style=3D"width:100%;background-color:#fafbfc;-webkit-text-size-adjust:10=
+0%;-ms-text-size-adjust:100%;">            <div id=3D"maincontent" style=3D=
+"max-width:620px; margin:0 auto;">              <div class=3D"preheader" st=
+yle=3D"font-size: 1px; line-height:1px; display: none!important; mso-hide:a=
+ll;">              </div>              <!--[if gte mso 9]>                <=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:620px=
+;">                  <tr>                    <td valign=3D"top">           =
+   <![endif]-->              <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" style=3D"width:100%;">                <tr>                  <td> =
+                   <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+style=3D"width:100%;">                      <tr>                        <td=
+ align=3D"center" style=3D"padding-bottom:5px;">                          <=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family=
+:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-serif; font-size:13px; li=
+ne-height:18px; color:#00C0EA; text-align:center; width:152px;">           =
+                   <tr>                                <td style=3D"padding=
+:20px 0 0px 0;">                                  <a href=3D"https://mclick=
+.udacity.com/z/ewmetc9p?uid=3Dbc82899a-da7a-4ca2-8b55-f80799df4211&txnid=3D=
+c7565519-13f2-4090-acec-c03f8a69a78f&mid=3D03da2f9e-7b92-43ff-a742-22b2691c=
+1386" style=3D"text-decoration:none;" target=3D"_blank"><img alt=3D"Udacity=
+" border=3D"0" height=3D"27" src=3D"https://s3-us-west-2.amazonaws.com/udac=
+ity-email/Footer/udacity-logo.jpg" style=3D"display:block; width:152px!impo=
+rtant; font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-serif; =
+font-size:22px; line-height:26px; color:#000000; text-transform:uppercase; =
+text-align:center; letter-spacing:1px;" width=3D"152" /></a>               =
+                 </td>                              </tr>                  =
+        </table>                        </td>                      </tr>   =
+                   <tr>                      <td align=3D"center">         =
+   <!--[if gte mso 9]>              <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"width:520px;">                <tr>               =
+   <td valign=3D"top">            <![endif]-->              <table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:100%; max-width:6=
+00px;">               <tbody>                <tr>                   <td ali=
+gn=3D"center">                   <table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Ari=
+al, sans-serif; font-size:20px; line-height:35px; font-weight:lighter; text=
+-align:center; width:100%;">                    <tbody>                    =
+ <tr>                       <td class=3D"body-header" style=3D"padding-bott=
+om: 10px; font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-seri=
+f; font-size:20px; line-height:30px; font-weight:lighter; text-align:center=
+; width:100%;"></td>                     </tr>                    </tbody> =
+                  </table>                   </td>                </tr>    =
+           </tbody>              </table>              <!--[if gte mso 9]> =
+             </td>              </tr>            </table>            <![end=
+if]-->                        </td>                      </tr>             =
+       </table>                  </td>                </tr>                =
+<tr>                  <td>                    <table border=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" cellspacing=3D"0" style=3D"width:100%;border-left: =
+2px solid #f5f6f7;">                      <tr>	                        <td =
+bgcolor=3D"#ffffff" styl=3D"border-left:1px solid #f0f2f3">                =
+          <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"=
+width:100%; border-left:2px solid #edeef1">                            <tr>=
+                          </tr></table><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" style=3D"width:100%;border-top:3px solid #7d97ad; ">   =
+                         <tr>                              <td style=3D"tex=
+t-align:center; padding:20px 40px 20px 40px; ">                            =
+  <!--[if (gte mso 9)|(IE)]>                                <table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width:520px;">         =
+                         <tr>                                    <td valign=
+=3D"top">                              <![endif]-->                        =
+        <div style=3D"display:inline-block; width:100%; max-width:520px;"> =
+                                 <table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"font-family:'Open+Sans', 'Open Sans=
+', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 24px; color:=
+#525C65; text-align:left; width:100%;">                                    =
+<tr>                                                                       =
+     <td class=3D"body-text" align=3D"left" style=3D"font-family:'Open+Sans=
+', 'Open Sans', Helvetica, Arial, sans-serif; font-size: 14px; line-height:=
+ 24px; text-align:left; width:100%;">                                      =
+  <p style=3D"padding: 20px 0 0; font-size: 18px; font-weight: bold; line-h=
+eight: 23px;">Review Available</p>                                        <=
+p style=3D"padding: 10px 0 0;">Hi Luciana, </p>                            =
+            <p style=3D"padding: 10px 0 0;">Your project review is ready. B=
+e sure to read through your full review and rate your reviewer.</p>        =
+                                <p style=3D"padding: 10px 0 0;">For questio=
+ns or concerns regarding your review, check out the discussion forums!</p> =
+                                     </td>                                 =
+                                         </tr>                             =
+     </table>                                </div>                        =
+      <!--[if (gte mso 9)|(IE)]>                                    </td>  =
+                                </tr>                                </tabl=
+e>                              <![endif]-->                              <=
+/td>                            </tr>                            <tr>      =
+                        <td style=3D"text-align:center; padding:5px 40px 40=
+px 40px;">                              <!--[if (gte mso 9)|(IE)]>         =
+                       <table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" style=3D"width:520px;">                                  <tr>          =
+                          <td valign=3D"top">                              =
+<![endif]-->                                <div style=3D"display:inline-bl=
+ock; width:100%; max-width:520px;">                                  <table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D=
+"font-family:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-serif; font-s=
+ize: 14px; line-height: 24px; text-align:left; width:100%;">               =
+                     <tr>                                      <td class=3D=
+"body-text" align=3D"left" style=3D"font-family:'Open+Sans', 'Open Sans', H=
+elvetica, Arial, sans-serif; font-size: 14px; line-height: 24px; text-align=
+:left; width:100%;">                                        <div style=3D"d=
+isplay:inline-block; width:100%; max-width: 520px;">                       =
+                   <table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, =
+Arial, sans-serif; font-size:16px; line-height:26px; text-align:center; wid=
+th:100%;">                                            <tr>                 =
+                             <td align=3D"center" valign=3D"top" style=3D"p=
+adding-bottom: 0;">                                                        =
+                                      <table width=3D"280" align=3D"center"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"background-color=
+: #01b3e3; border-radius: 4px; border-collapse:separate !important;">      =
+                                            <tr>                           =
+                         <td width=3D"280" height=3D"46" align=3D"center" v=
+align=3D"middle" style=3D"font-size: 13px; font-family: 'Open+Sans','Open S=
+ans',Helvetica, Arial, sans-serif; font-weight: semibold;">                =
+                                      <a href=3D"https://mclick.udacity.com=
+/track?uid=3Dbc82899a-da7a-4ca2-8b55-f80799df4211&txnid=3Dc7565519-13f2-409=
+0-acec-c03f8a69a78f&eid=3D6f154690-7543-4582-9be7-e397af208dbd&mid=3D03da2f=
+9e-7b92-43ff-a742-22b2691c1386&a=3Dclick&redir=3Dhttps%3A%2F%2Freview.udaci=
+ty.com%2F%3Futm_campaign%3Dret_000_auto_ndxxx_submission-reviewed%26utm_sou=
+rce%3Dblueshift%26utm_medium%3Demail%26utm_content%3Dreviewsapp-submission-=
+reviewed%23%21%2Freviews%2F1747092" title=3D"CONTINUE TO PROJECT REVIEW" st=
+yle=3D"text-decoration: none; color: #ffffff; letter-spacing: 2px; display:=
+ block; padding-top: 10px; padding-bottom: 10px;">CONTINUE TO PROJECT REVIE=
+W</a>                                                    </td>             =
+                                     </tr>                                 =
+               </table>                                                    =
+                                        </td>                              =
+              </tr>                                          </table>      =
+                                  </div>                                   =
+   </td>                                    </tr>                          =
+        </table>                                </div>                     =
+         <!--[if (gte mso 9)|(IE)]>                                    </td=
+>                                  </tr>                                </t=
+able>                              <![endif]-->                            =
+  </td>                            </tr>                                   =
+                      <tr>                              <td bgcolor=3D"#e0e=
+2e5" style=3D"height:1px; width:100%; line-height:1px; font-size:0;"><br />=
+</td>                            </tr>                            <tr>     =
+                         <td bgcolor=3D"#e0e2e4" style=3D"height:1px; width=
+:100%; line-height:1px; font-size:0;"><br /></td>                          =
+  </tr>                            <tr>                              <td bg=
+color=3D"#e8ebed" style=3D"height:1px; width:100%; line-height:1px; font-si=
+ze:0;"><br /></td>                            </tr>                        =
+    <tr>                              <td bgcolor=3D"#f1f3f6" style=3D"heig=
+ht:1px; width:100%; line-height:1px; font-size:0;"><br /></td>             =
+               </tr>                          </table>                     =
+   </td>                        <td bgcolor=3D"#edeef1" style=3D"width:1px;=
+ font-size:1px;"><br /></td>                        <td bgcolor=3D"#f0f2f3"=
+ style=3D"width:1px; font-size:1px;"><br /></td>                        <td=
+ bgcolor=3D"#f5f6f7" style=3D"width:1px; font-size:1px;"><br /></td>       =
+                 <td bgcolor=3D"#fafbfc" style=3D"width:7px; font-size:1px;=
+"><br /></td>                      </tr>                    </table>       =
+           </td>                </tr>                                <tr>  =
+                <td align=3D"center" style=3D"padding:30px 0 20px 0;">     =
+               <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"width:220px;">                      <tr>                        <td al=
+ign=3D"center">                          <a href=3D"https://mclick.udacity.=
+com/z/b18effru?uid=3Dbc82899a-da7a-4ca2-8b55-f80799df4211&txnid=3Dc7565519-=
+13f2-4090-acec-c03f8a69a78f&mid=3D03da2f9e-7b92-43ff-a742-22b2691c1386" tar=
+get=3D"_blank"><img alt=3D"Twitter" border=3D"0" height=3D"26" src=3D"https=
+://s3-us-west-2.amazonaws.com/udacity-email/Footer/twitter.jpg" style=3D"di=
+splay:block; width:26px!important; height:26px!important;" width=3D"26" /><=
+/a>                        </td>                        <td align=3D"center=
+">                          <a href=3D"https://mclick.udacity.com/z/5ypyw6i=
+a?uid=3Dbc82899a-da7a-4ca2-8b55-f80799df4211&txnid=3Dc7565519-13f2-4090-ace=
+c-c03f8a69a78f&mid=3D03da2f9e-7b92-43ff-a742-22b2691c1386" target=3D"_blank=
+"><img alt=3D"Facebook" border=3D"0" height=3D"26" src=3D"https://s3-us-wes=
+t-2.amazonaws.com/udacity-email/Footer/facebook.jpg" style=3D"display:block=
+; width:26px!important; height:26px!important;" width=3D"26" /></a>        =
+                </td>                        <td align=3D"center">         =
+                 <a href=3D"https://mclick.udacity.com/z/gfwb7bev?uid=3Dbc8=
+2899a-da7a-4ca2-8b55-f80799df4211&txnid=3Dc7565519-13f2-4090-acec-c03f8a69a=
+78f&mid=3D03da2f9e-7b92-43ff-a742-22b2691c1386" target=3D"_blank"><img alt=
+=3D"Instagram" border=3D"0" height=3D"28" src=3D"https://s3-us-west-2.amazo=
+naws.com/udacity-email/New+User/icon-instagram.png" style=3D"display:block;=
+ height:28px!important;" /></a>                        </td>               =
+         <td align=3D"center">                          <a href=3D"https://=
+mclick.udacity.com/z/v71x3awx?uid=3Dbc82899a-da7a-4ca2-8b55-f80799df4211&tx=
+nid=3Dc7565519-13f2-4090-acec-c03f8a69a78f&mid=3D03da2f9e-7b92-43ff-a742-22=
+b2691c1386" target=3D"_blank"><img alt=3D"Linkedin" border=3D"0" height=3D"=
+26" src=3D"https://s3-us-west-2.amazonaws.com/udacity-email/Footer/linkedin=
+.jpg" style=3D"display:block; width:26px!important; height:26px!important;"=
+ width=3D"26" /></a>                        </td>                      </tr=
+>                    </table>                  </td>                </tr>  =
+              <tr>                  <td align=3D"center" style=3D"padding-b=
+ottom:40px;">                    <table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" style=3D"font-family:'Open+Sans', 'Open Sans', Helvetica, Ari=
+al, sans-serif; font-size:12px; line-height:18px;  text-align:center;">    =
+                  <tr>                        <td class=3D"body-text" align=
+=3D"center" style=3D"color:#b7bdc1; font-family:'Open+Sans', 'Open Sans', H=
+elvetica, Arial, sans-serif; font-size:12px; line-height:18px;  text-align:=
+center;">                          <p style=3D"color:#b7bdc1;"><span class=
+=3D"appleLinksGrey"><a href=3D"" style=3D"text-decoration:none!important;co=
+lor:#b7bdc1;">2440 W =E2=80=8DEl Cam=E2=80=8Dino Real =C2=A0 =E2=80=A2 =C2=
+=A0Mou=E2=80=8Dntain V=E2=80=8Diew, C=E2=80=8DA 94=E2=80=8D040</a></span></=
+p>                                                                         =
+     <p style=3D"Margin:15px 0 0 0;color:#b7bdc1;">You've received this ema=
+il because you're signed up to receive email updates from Udacity.</p>     =
+                     <p style=3D"Margin:8px 0 0 0;"><a href=3D"https://mcli=
+ck.udacity.com/customer/unsubscribe?uid=3Dbc82899a-da7a-4ca2-8b55-f80799df4=
+211&mid=3D03da2f9e-7b92-43ff-a742-22b2691c1386&txnid=3Dc7565519-13f2-4090-a=
+cec-c03f8a69a78f&eid=3D6f154690-7543-4582-9be7-e397af208dbd" style=3D"color=
+:#b7bdc1 ; text-decoration:underline;" title=3D"Link: https://www.udacity.c=
+om/status/unsubscribed">Unsubscribe</a></p>                        </td>   =
+                   </tr>                    </table>                  </td>=
+                </tr>              </table>              <!--[if gte mso 9]=
+>                    </td>                  </tr>                </table>  =
+            <![endif]-->            </div>            <div style=3D" width:=
+100%;">              <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" style=3D"width:100%;">                <tr>                  <td align=3D"=
+center" bgcolor=3D"#7d97ad" style=3D"padding:10px 0;">                    <=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"font-family=
+:'Open+Sans', 'Open Sans', Helvetica, Arial, sans-serif; font-size:14px; li=
+ne-height:19px;  text-align:center; width:auto;">                      <tr>=
+                        <td class=3D"body-text" style=3D"color:#ffffff;">Be=
+ in demand</td>                      </tr>                    </table>     =
+             </td>                </tr>              </table>            </=
+div>          </center>        </td>      </tr>    </table>  <img src=3D"ht=
+tps://mclick.udacity.com/track?uid=3Dbc82899a-da7a-4ca2-8b55-f80799df4211&t=
+xnid=3Dc7565519-13f2-4090-acec-c03f8a69a78f&eid=3D6f154690-7543-4582-9be7-e=
+397af208dbd&mid=3D03da2f9e-7b92-43ff-a742-22b2691c1386&a=3Dopen" data-bsft-=
+open-pixel=3D"" />
+
+<img src=3D"https://tclick.udacity.com/wf/open?upn=3DcISuUkz-2BnGE1wTdTbiuI=
+GvVZGowMnAH-2B-2Fd5m-2BnT-2BtrssPk-2FZv7c1lW1bjVGVyzZ7GP8RLzstEioQVXjyx8UKx=
+gPQOR5-2B4-2FAVHPqIAxgMKzZsai0cUcHB68y4-2BWExrWtonlN8zETAronqBflrobX8MW3DIW=
+srZ87H4bg-2FhCUW0JP6u2SCuscpXQeT1WJxf2sVGRRnokusCGFBtVe-2Bp7kQp6vMLt-2FU2Vg=
+QXcVtWXYULEqIAI9sRvvmuwHDo6SRoBQc-2Fy3UL7EnR1AwcEMJCrgrir97-2BHXWDlzLJFJobU=
+7dTzWqpsyTXXCfkrEKy-2Bv5XeJ8wGOF3tl80l-2BHMCtiFw8G98wWZoiwBSyj41qG3XuLm6mIt=
+3vPLXlWv8sTQRYzLukOOkQ3wl-2BKi4miiCsaTgTho2ZSme399D-2FQKTqvRlgs8zoktF7skhzo=
+dcJF1S7vKt2Cgnh6G6DcW-2FzklqD0p282WVjyW9mHmzYQakN3ArHj6WJ1a3pPwGKo3ffhsowoU=
+A1TCfZZG-2BDpZc4lBoS8oFNfrd9JRUwbRTGO-2FJCUwCLZwNwUFQyKaM60aHBJO-2B1xxuYb2m=
+I5OH8RWKdmPpeEHm8hc8kKoXSrdFeHJdow-2FklFXUmU3rBBHx7d8hlY12DfR0CfwCg5fEWyYCy=
+D1WfIbZqItfytZBC3zOe2MggGjMRr3VsufJgOoOmX4-2BhR8u65QN9Ipe-2BcQ6Juy3JO0c77Iu=
+yeNu8Niljiaw1p5VBx8-2FUdlLif2Zr446IbODNKCKe4O9qKFjBsUrhnRjtOBU0vlN26l-2BL7v=
+YHGaYgtyCl3fF6VHfapZ7Uw339LZiqLSv5ZO2qJriyqByjmiMra5WuBviRtbWXB77r9jjl3kfys=
+saiTS-2F4-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"heigh=
+t:1px !important;width:1px !important;border-width:0 !important;margin-top:=
+0 !important;margin-bottom:0 !important;margin-right:0 !important;margin-le=
+ft:0 !important;padding-top:0 !important;padding-bottom:0 !important;paddin=
+g-right:0 !important;padding-left:0 !important;"/>
+</body></html>
